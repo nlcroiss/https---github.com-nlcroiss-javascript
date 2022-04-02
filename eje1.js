@@ -1,47 +1,42 @@
-// function solicitarNombre(){
-//     let nombreIngresado   = prompt("Ingresar nombre");
-//     alert("El nombre ingresado es " + nombreIngresado);
-// } 
 
-// solicitarNombre();
+let resultado = 0
 
-// //Declaración de variable para guardar el resultado de la suma
-// let resultado = 0;
-// //Función que suma dos números y asigna a resultado
-// function sumar(primerNumero, segundoNumero) {
-//     resultado = primerNumero + segundoNumero
-// }
-// //Función que muestra resultado por consola
-// function mostrar(mensaje) {
-//     alert("el resultado es "+mensaje)
-// }
-// //Llamamos primero a sumar y luego a mostrar
-// sumar(6, 3);            
-// mostrar(resultado); 
+function financiera(precio, cuotas) {
 
+    if (cuotas >=12){
+        interes = (precio * 0.5);
+        resultado = (precio + interes)/cuotas;
+        
+    }else{
+        if (cuotas >=6){
+            interes = (precio * 0.25);
+            resultado = (precio + interes) / cuotas;
+            
+        }else{
+            if (cuotas >=3){
+            interes = (precio * 0.10);
+            resultado = (precio + interes) / cuotas;
+        }else{
+            resultado = precio / cuotas;
+        }
 
-class Producto {
-    constructor(nombre, precio) {
-        this.nombre  = nombre.toUpperCase();
-        this.precio  = parseFloat(precio);
-        this.vendido = false;
-    }
-    sumaIva() {
-        this.precio = this.precio * 1.21;
-    }
-    vender() {
-        this.vendido = true;
+        }
+        
     }
 }
-const producto1 = new Producto("arroz", "125");
-const producto2 = new Producto("fideo", "50");
 
-console.log(producto1.nombre);
-console.log(producto1.vendido);
 
-producto1.sumaIva();
-producto2.sumaIva();
-producto1.vender();
 
-console.log(producto1.nombre);
-console.log(producto1.vendido);
+let nombreIngresado   = prompt("Ingresar su nombre");
+
+let nombreProducto  = prompt("Ingresar el producto a comprar");
+
+let precioProducto  = parseInt(prompt("Ingresar el precio de dicho producto"));
+
+let cantidadCuotas = parseInt(prompt("Ingresar la cantidad de cuotas en a pagar"));
+
+
+
+financiera(precioProducto,cantidadCuotas);
+
+alert("Gracias por usar el simulador de cuotas " + nombreIngresado + "\n El Producto seleccionado por usted es: " + nombreProducto + "\n El Precio de dicho producto es: " + precioProducto + "\n El Precio en " + cantidadCuotas +" cuotas que debe pagar es: " + resultado );
